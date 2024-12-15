@@ -1,0 +1,32 @@
+{
+  {{#if_equals ItemType 'Movie'}}
+    "title": "Film Added • {{Name}}",
+  {{/if_equals}}
+
+  {{#if_equals ItemType 'Episode'}}
+    "title": "Episode Added • {{SeriesName}} S{{SeasonNumber00}}E{{EpisodeNumber00}} - {{Name}}",
+  {{/if_equals}}
+
+  {{#if_equals ItemType 'Season'}}
+    "title": "Season Added • {{SeriesName}} {{Name}}",
+  {{/if_equals}}
+
+  {{#if_equals ItemType 'Series'}}
+    "title": "Show Added • {{Name}}",
+  {{/if_equals}}
+
+  {{#if_equals ItemType 'Album'}}
+    "title": "Album Added • {{Artist}} - {{Name}}",
+  {{/if_equals}}
+
+  {{#if_equals ItemType 'Audio'}}
+    "title": "Song Added • {{Artist}} - {{Name}}",
+  {{/if_equals}}
+
+  "url": "{{ServerUrl}}/web/#!/details?id={{ItemId}}&serverId={{ServerId}}",
+  "image": "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary",
+  "description": "{{Overview}}",
+  "type": "{{ItemType}}",
+  "server_name": "{{ServerName}}",
+  "timestamp": "{{Timestamp}}"
+}
