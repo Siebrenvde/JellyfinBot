@@ -18,6 +18,7 @@ dependencies {
         exclude module: "opus-java"
     }
     implementation "io.github.cdimascio:dotenv-java:3.0.2"
+    implementation "org.apache.commons:commons-text:1.13.0"
 }
 
 jar {

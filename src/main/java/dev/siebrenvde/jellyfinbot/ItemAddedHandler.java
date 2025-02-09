@@ -6,6 +6,7 @@ import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.utils.FileUpload;
+import org.apache.commons.text.StringEscapeUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -21,7 +22,10 @@ public record ItemAddedHandler(DiscordBot bot) implements Handler {
         Request request;
 
         try {
-            request = new Gson().fromJson(ctx.body(), Request.class);
+            request = new Gson().fromJson(
+                StringEscapeUtils.unescapeHtml4(ctx.body()),
+                Request.class
+            );
         } catch(JsonSyntaxException e) {
             ctx.status(400);
             bot.sendMessage(
